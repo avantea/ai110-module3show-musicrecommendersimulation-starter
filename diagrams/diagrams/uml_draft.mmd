@@ -1,0 +1,29 @@
+classDiagram
+    class Song {
+        +int id
+        +str title
+        +str artist
+        +str genre
+        +str mood
+        +float energy
+        +float tempo_bpm
+        +float valence
+        +float danceability
+        +float acousticness
+    }
+
+    class UserProfile {
+        +str favorite_genre
+        +str favorite_mood
+        +float target_energy
+        +bool likes_acoustic
+    }
+
+    class Recommender {
+        +List~Song~ songs
+        +recommend(user: UserProfile, k: int) List~Song~
+        +explain_recommendation(user: UserProfile, song: Song) str
+    }
+
+    Recommender --> "many" Song : recommends from
+    Recommender ..> UserProfile : uses
