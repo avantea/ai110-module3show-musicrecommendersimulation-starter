@@ -3,10 +3,10 @@ from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass
 
 # --- Scoring weights (tweak these to change how the recommender behaves) ---
-GENRE_WEIGHT = 3.0      # points for matching the user's favorite genre
-MOOD_WEIGHT = 2.0       # points for matching the user's favorite mood
-ENERGY_WEIGHT = 2.0     # how much energy closeness matters
-ACOUSTIC_WEIGHT = 1.0   # how much the acoustic preference matters
+GENRE_WEIGHT = 3.0
+MOOD_WEIGHT = 2.0
+ENERGY_WEIGHT = 2.0
+ACOUSTIC_WEIGHT = 1.0
 
 @dataclass
 class Song:
