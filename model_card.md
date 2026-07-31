@@ -1,111 +1,53 @@
-# 🎧 Model Card: Music Recommender Simulation
+# 🎧 Model Card: HarmonyMatch 1.0
 
-## 1. Model Name  
+## 1. Model Name
 
-Give your model a short, descriptive name.  
-Example: **VibeFinder 1.0**  
-
----
-
-## 2. Intended Use  
-
-Describe what your recommender is designed to do and who it is for. 
-
-Prompts:  
-
-- What kind of recommendations does it generate  
-- What assumptions does it make about the user  
-- Is this for real users or classroom exploration  
+**HarmonyMatch 1.0**
 
 ---
 
-## 3. How the Model Works  
+## 2. Intended Use
 
-Explain your scoring approach in simple language.  
-
-Prompts:  
-
-- What features of each song are used (genre, energy, mood, etc.)  
-- What user preferences are considered  
-- How does the model turn those into a score  
-- What changes did you make from the starter logic  
-
-Avoid code here. Pretend you are explaining the idea to a friend who does not program.
+HarmonyMatch 1.0 is designed to recommend songs based on a user's musical preferences using a simple content-based recommendation system. It compares song features such as genre, mood, energy, and acousticness with a user's preferred taste profile. This project is intended for classroom learning and experimentation rather than real-world music streaming.
 
 ---
 
-## 4. Data  
+## 3. How the Model Works
 
-Describe the dataset the model uses.  
-
-Prompts:  
-
-- How many songs are in the catalog  
-- What genres or moods are represented  
-- Did you add or remove data  
-- Are there parts of musical taste missing in the dataset  
+The recommender compares each song to the user's preferences and gives it a weighted score. Songs receive bonus points when their genre and mood match the user's favorites. Numeric features such as energy are scored based on how close they are to the user's preferred value, and acousticness is rewarded or penalized depending on whether the user prefers acoustic music. After every song is scored, the system ranks all songs from highest to lowest score and recommends the top results.
 
 ---
 
-## 5. Strengths  
+## 4. Data
 
-Where does your system seem to work well  
-
-Prompts:  
-
-- User types for which it gives reasonable results  
-- Any patterns you think your scoring captures correctly  
-- Cases where the recommendations matched your intuition  
+The dataset contains 18 songs covering genres such as pop, rock, lofi, indie pop, hip-hop, classical, EDM, folk, R&B, metal, reggae, and country. I expanded the original dataset to include more genres and moods. Although the dataset is more diverse, it is still small and cannot represent every type of musical taste.
 
 ---
 
-## 6. Limitations and Bias 
+## 5. Strengths
 
-Where the system struggles or behaves unfairly. 
-
-Prompts:  
-
-- Features it does not consider  
-- Genres or moods that are underrepresented  
-- Cases where the system overfits to one preference  
-- Ways the scoring might unintentionally favor some users  
+The recommender performs well when users have clear musical preferences. It successfully recommended pop songs for the High-Energy Pop profile, lofi songs for the Chill Lofi profile, and rock songs for the Deep Intense Rock profile. The explanation feature also helps users understand why each recommendation was selected.
 
 ---
 
-## 7. Evaluation  
+## 6. Limitations and Bias
 
-How you checked whether the recommender behaved as expected. 
-
-Prompts:  
-
-- Which user profiles you tested  
-- What you looked for in the recommendations  
-- What surprised you  
-- Any simple tests or comparisons you ran  
-
-No need for numeric metrics unless you created some.
+The recommender only considers a small number of song features and ignores lyrics, artist preferences, popularity, release year, and listening history. Because genre has a relatively high weight, the system may repeatedly recommend similar songs instead of introducing more variety. The limited dataset also creates bias because some genres have fewer songs than others.
 
 ---
 
-## 8. Future Work  
+## 7. Evaluation
 
-Ideas for how you would improve the model next.  
-
-Prompts:  
-
-- Additional features or preferences  
-- Better ways to explain recommendations  
-- Improving diversity among the top results  
-- Handling more complex user tastes  
+I tested the recommender using three user profiles: High-Energy Pop, Chill Lofi, and Deep Intense Rock. Each profile produced recommendations that generally matched the intended musical style. I also experimented by reducing the genre weight and increasing the energy weight. This caused high-energy songs from different genres to rank higher, making recommendations more varied but sometimes less accurate.
 
 ---
 
-## 9. Personal Reflection  
+## 8. Future Work
 
-A few sentences about your experience.  
+In the future, I would include additional features such as tempo, danceability, valence, artist preference, and listening history. I would also improve recommendation diversity so users receive a wider range of songs instead of very similar recommendations.
 
-Prompts:  
+---
 
-- What you learned about recommender systems  
-- Something unexpected or interesting you discovered  
-- How this changed the way you think about music recommendation apps  
+## 9. Personal Reflection
+
+This project helped me understand how recommendation systems transform user preferences into ranked suggestions using weighted scoring. As a musician, I found it interesting that a small number of musical features could still produce recommendations that felt realistic. AI tools helped me design the algorithm and debug my implementation, but I still needed to review the suggestions and decide which ideas best fit my project.

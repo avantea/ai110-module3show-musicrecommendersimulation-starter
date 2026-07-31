@@ -25,5 +25,5 @@ classDiagram
         +explain_recommendation(user: UserProfile, song: Song) str
     }
 
-    Recommender --> "many" Song : recommends from
+    Recommender --> "*" Song : recommends from
     Recommender ..> UserProfile : uses
